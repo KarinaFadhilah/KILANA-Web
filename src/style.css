@@ -343,7 +343,21 @@ input, select, textarea {
   height: 2.5px;
   background-color: var(--color-forest);
   border-radius: 4px;
-  transition: all var(--transition-fast);
+  transition: all var(--transition-base);
+  transform-origin: center;
+}
+
+.mobile-toggle-btn[aria-expanded="true"] .bar:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+
+.mobile-toggle-btn[aria-expanded="true"] .bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.mobile-toggle-btn[aria-expanded="true"] .bar:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
 }
 
 /* Mobile Nav Drawer */
@@ -3454,6 +3468,7 @@ input, select, textarea {
     right: 0;
     left: 0;
     height: 92vh;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
     transform: translateY(100%);
     box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.25);
   }
@@ -3590,9 +3605,27 @@ input, select, textarea {
     gap: 1rem;
   }
 
-  /* Scanner phone mockup: hide on very small */
+  /* Scanner phone mockup: neatly scaled on small screens */
   .sim-graphic {
-    display: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1.25rem;
+  }
+
+  .phone-frame {
+    width: 220px;
+    height: 380px;
+  }
+
+  .scanner-viewfinder {
+    width: 140px;
+    height: 140px;
+  }
+
+  .sim-qr-center svg {
+    width: 60px;
+    height: 60px;
   }
 
   /* Features bar: stack tighter */
