@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title>KILANA — Colorful Wildlife Lifestyle Brand | Wear a Bracelet. Follow a Wild Life.</title>
+    <meta name="description" content="KILANA memadukan gelang warna-warni playful dan modern dengan pengalaman digital untuk mengenal dan melindungi satwa liar Indonesia. Kenakan gelangmu, scan kodenya, ikuti perjalanannya." />
+    <meta name="keywords" content="KILANA, gelang satwa liar, wildlife lifestyle brand, gelang konservasi Indonesia, orangutan sumatra, gelang tali warna-warni, eco-tech bracelet" />
+    <meta name="author" content="KILANA Indonesia" />
+    <meta property="og:title" content="KILANA — Colorful Wildlife Lifestyle Brand" />
+    <meta property="og:description" content="Wear a bracelet. Follow a wild life. Perpaduan gaya hidup penuh warna dengan perlindungan satwa liar nyata Indonesia." />
+    <meta property="og:type" content="website" />
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Outfit & Syne -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23245747'/><circle cx='50' cy='50' r='28' fill='%23D5EF70'/><circle cx='40' cy='42' r='5' fill='%23245747'/><circle cx='60' cy='42' r='5' fill='%23245747'/><path d='M42 56 Q50 64 58 56' stroke='%23245747' stroke-width='4' fill='none' stroke-linecap='round'/></svg>" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- Top Announcement Bar -->
+    <aside class="announcement-bar" id="announcement-bar" aria-label="Pengumuman Penting">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <span>🌿 10% DARI SETIAP GELANG MENDUKUNG SATWA LIAR INDONESIA</span>
+          <span class="marquee-star">✦</span>
+          <span>🐾 PANTAU PERKEMBANGAN SATWA VIA KODE QR DIGITAL PASSPORT</span>
+          <span class="marquee-star">✦</span>
+          <span>✨ DIBUAT DARI BAHAN DAUR ULANG OLEH PENGRAJIN LOKAL YOGYAKARTA & BALI</span>
+          <span class="marquee-star">✦</span>
+          <span>🐒 KENALI OSA-014 (BONI) ORANGUTAN SUMATRA HARI INI</span>
+          <span class="marquee-star">✦</span>
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+          <span>🌿 10% DARI SETIAP GELANG MENDUKUNG SATWA LIAR INDONESIA</span>
+          <span class="marquee-star">✦</span>
+          <span>🐾 PANTAU PERKEMBANGAN SATWA VIA KODE QR DIGITAL PASSPORT</span>
+          <span class="marquee-star">✦</span>
+          <span>✨ DIBUAT DARI BAHAN DAUR ULANG OLEH PENGRAJIN LOKAL YOGYAKARTA & BALI</span>
+          <span class="marquee-star">✦</span>
+          <span>🐒 KENALI OSA-014 (BONI) ORANGUTAN SUMATRA HARI INI</span>
+          <span class="marquee-star">✦</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Navigation Header -->
+    <header class="site-header" id="site-header">
+      <div class="header-inner container">
+        <a href="#hero" class="brand-logo" id="brand-logo" aria-label="KILANA Beranda">
+          <div class="logo-mark">
+            <svg viewBox="0 0 40 40" width="34" height="34" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="10" fill="#245747"/>
+              <path d="M12 28C12 20 18 14 26 14" stroke="#D5EF70" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="28" cy="14" r="3.5" fill="#FF7867"/>
+              <circle cx="21" cy="21" r="2.5" fill="#FFC857"/>
+              <circle cx="14" cy="28" r="3" fill="#D5EF70"/>
+              <path d="M22 28C24 25 28 25 30 28" stroke="#FFF5E6" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="logo-text-group">
+            <span class="logo-title">KILANA</span>
+            <span class="logo-tag">WILDLIFE LIFESTYLE</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="nav-desktop" id="nav-desktop" aria-label="Navigasi Utama">
+          <a href="#hero" class="nav-link active">Home</a>
+          <a href="#shop" class="nav-link">Shop Bracelets</a>
+          <a href="#wildlife" class="nav-link">Meet Wildlife <span class="nav-badge">Live</span></a>
+          <a href="#how-it-works" class="nav-link">Scan Your Code</a>
+          <a href="#impact" class="nav-link">Our Impact</a>
+          <a href="#story" class="nav-link">Our Story</a>
+        </nav>
+
+        <!-- Right Action Buttons -->
+        <div class="header-actions">
+          <button class="btn-scan-trigger" id="btn-open-scanner" aria-label="Buka Scanner QR Demo">
+            <span class="scan-icon">⚡</span>
+            <span class="scan-text">Demo Scan QR</span>
+          </button>
+
+          <button class="cart-trigger-btn" id="cart-trigger-btn" aria-label="Keranjang Belanja">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="8" cy="21" r="1"></circle>
+              <circle cx="19" cy="21" r="1"></circle>
+              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+            </svg>
+            <span class="cart-badge-count" id="cart-badge-count">0</span>
+          </button>
+
+          <!-- Mobile Menu Hamburger -->
+          <button class="mobile-toggle-btn" id="mobile-toggle-btn" aria-label="Toggle Menu Navigasi" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <nav class="nav-mobile-drawer" id="nav-mobile-drawer" aria-hidden="true">
+        <div class="mobile-nav-links">
+          <a href="#hero" class="mobile-nav-link">Home</a>
+          <a href="#shop" class="mobile-nav-link">Shop Bracelets</a>
+          <a href="#wildlife" class="mobile-nav-link">Meet the Wildlife 🐾</a>
+          <a href="#how-it-works" class="mobile-nav-link">Scan Your Code (QR)</a>
+          <a href="#impact" class="mobile-nav-link">Our Impact & Transparency</a>
+          <a href="#story" class="mobile-nav-link">Our Story & Artisans</a>
+        </div>
+        <div class="mobile-nav-footer">
+          <button class="btn-primary-coral w-full" id="mobile-quick-scan-btn">
+            ⚡ Coba Demo Scan QR Satwa
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <!-- 1. HERO SECTION — Meet Your Wild Side -->
+      <section class="hero-section" id="hero">
+        <div class="hero-bg-doodles" aria-hidden="true">
+          <div class="doodle doodle-sun"></div>
+          <div class="doodle doodle-paw-1">🐾</div>
+          <div class="doodle doodle-paw-2">🐾</div>
+          <div class="doodle doodle-swoosh"></div>
+        </div>
+
+        <div class="container hero-container">
+          <!-- Left Column: Emotional Editorial Story & Headline -->
+          <div class="hero-content">
+            <div class="hero-pill-badge">
+              <span class="badge-dot"></span>
+              <span class="badge-text">COLORFUL WILDLIFE LIFESTYLE BRAND</span>
+            </div>
+
+            <h1 class="hero-headline">
+              WEAR A BRACELET. <br/>
+              <span class="headline-highlight">FOLLOW A WILD LIFE.</span>
+            </h1>
+
+            <p class="hero-description">
+              A little piece of you can make a difference for wildlife. Kenakan gelang tangan penuh warna buatan pengrajin lokal, pindai kode QR untuk mengenal kisah satwa liar Indonesia secara langsung, dan bantu lindungi habitat aslinya.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#shop" class="btn-primary-coral" id="hero-cta-shop">
+                <span>Explore Bracelets</span>
+                <span class="btn-arrow">↗</span>
+              </a>
+              <a href="#wildlife" class="btn-secondary-forest" id="hero-cta-wildlife">
+                <span>Meet the Wildlife</span>
+                <span class="btn-icon">🐾</span>
+              </a>
+            </div>
+
+            <!-- Social Proof / Traction Pill -->
+            <div class="hero-proof-bar">
+              <div class="proof-avatars">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Customer avatar" class="proof-avatar" />
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Customer avatar" class="proof-avatar" />
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80" alt="Customer avatar" class="proof-avatar" />
+                <span class="proof-count-badge">+2.4k</span>
+              </div>
+              <div class="proof-text-group">
+                <span class="proof-highlight">2.480+ Gelang Terpakai</span>
+                <span class="proof-sub">Dukungan nyata dari generasi muda untuk satwa Indonesia</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Animal × Bracelet Collage -->
+          <div class="hero-visual-collage">
+            <div class="collage-card-main">
+              <!-- Wildlife Photography as Prime Star -->
+              <div class="wildlife-photo-frame">
+                <img 
+                  src="https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?auto=format&fit=crop&w=1200&q=80" 
+                  alt="Orangutan Sumatra di alam liar kanopi hutan" 
+                  class="hero-wildlife-img"
+                  id="hero-wildlife-img"
+                />
+                <div class="wildlife-overlay-tag">
+                  <span class="tag-live-pulse"></span>
+                  <span class="tag-title">Orangutan Sumatra · OSA-014 "Boni"</span>
+                </div>
+              </div>
+
+              <!-- Overlapping Colorful Bracelet Product Card (Layered Collage) -->
+              <div class="bracelet-overlap-card floating-motion">
+                <div class="overlap-img-wrap">
+                  <img 
+                    src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=600&q=80" 
+                    alt="Gelang KILANA Forest Buddy" 
+                    class="overlap-bracelet-img"
+                  />
+                  <span class="overlap-badge">Forest Buddy</span>
+                </div>
+                <div class="overlap-info">
+                  <span class="overlap-title">KILANA Emerald Lime</span>
+                  <div class="overlap-price-row">
+                    <span class="overlap-price">Rp 89.000</span>
+                    <button class="overlap-quick-btn" id="hero-quick-add" aria-label="Tambah Forest Buddy ke keranjang">
+                      + Tambah
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Playful Sticker Elements -->
+              <div class="sticker-badge sticker-top-right">
+                <span class="sticker-icon">✨</span>
+                <span class="sticker-text">100% Handcrafted</span>
+              </div>
+
+              <div class="sticker-badge sticker-rotating" id="sticker-rotating">
+                <svg viewBox="0 0 100 100" width="90" height="90">
+                  <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
+                  <text font-size="10.5" font-weight="700" fill="#245747" letter-spacing="2">
+                    <textPath xlink:href="#circlePath">
+                      • KILANA WILDLIFE • SCAN & FOLLOW •
+                    </textPath>
+                  </text>
+                </svg>
+                <div class="sticker-center-emoji">🐾</div>
+              </div>
+
+              <div class="sticker-badge sticker-bottom-left">
+                <span class="sticker-tag">10% Penjualan Bersih</span>
+                <span class="sticker-sub">Didonasikan ke Konservasi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Brand Mission Highlight Strip -->
+      <section class="features-bar">
+        <div class="container features-grid">
+          <div class="feature-item">
+            <div class="feature-icon-box bg-lime-tint">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#245747" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="feature-texts">
+              <h4>Playful Daily Accessories</h4>
+              <p>Warna vibran, nyaman & tahan air untuk dipakai setiap hari.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon-box bg-coral-tint">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF7867" stroke-width="2.5"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h.01M17 7h.01M7 17h.01M17 17h.01"/></svg>
+            </div>
+            <div class="feature-texts">
+              <h4>Digital Passport via QR</h4>
+              <p>Pindai gelangmu untuk membuka cerita & tracker satwa nyata.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon-box bg-sun-tint">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#245747" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="feature-texts">
+              <h4>Verified Conservation Impact</h4>
+              <p>Bermitra dengan tim ranger & balai konservasi resmi Indonesia.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. SHOP THE BRACELETS SECTION -->
+      <section class="section-shop" id="shop">
+        <div class="container">
+          <div class="section-header-row">
+            <div>
+              <div class="section-label-chip">
+                <span>PRODUCT SHOWCASE</span>
+              </div>
+              <h2 class="section-title">Shop the Bracelets</h2>
+              <p class="section-subtitle">
+                Setiap gelang dirajut tangan penuh warna dan terhubung langsung ke satu satwa liar binaan mitra konservasi resmi.
+              </p>
+            </div>
+
+            <!-- Filter Pills -->
+            <div class="filter-pills-row" id="product-filter-pills" role="tablist" aria-label="Filter Koleksi Gelang">
+              <button class="filter-pill active" data-filter="all" role="tab" aria-selected="true">Semua Koleksi</button>
+              <button class="filter-pill" data-filter="Forest Collection" role="tab">Forest Buddy</button>
+              <button class="filter-pill" data-filter="Rimba Bold Collection" role="tab">Wild Spirit</button>
+              <button class="filter-pill" data-filter="Coastal Conservation" role="tab">Ocean Wanderer</button>
+              <button class="filter-pill" data-filter="Collector's Box" role="tab">Bundling Pack</button>
+            </div>
+          </div>
+
+          <!-- Product Grid Container -->
+          <div class="products-grid" id="products-grid">
+            <!-- Dynamically populated via JavaScript -->
+          </div>
+
+          <!-- Shop Assurance Banner -->
+          <div class="shop-guarantee-card">
+            <div class="guarantee-left">
+              <span class="guarantee-badge">🌱 Eco-Friendly Packaging</span>
+              <h3>Setiap gelang dikemas dalam kantong blacu katun daur ulang dengan kartu cerita satwa bertanda tangan ranger.</h3>
+            </div>
+            <a href="#how-it-works" class="btn-outline-forest">
+              Lihat Cara Kerja QR ⚡
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. MEET YOUR WILDLIFE SECTION -->
+      <section class="section-wildlife" id="wildlife">
+        <div class="container">
+          <div class="wildlife-header-center">
+            <div class="section-label-chip bg-lime-chip">
+              <span>WILDLIFE STORIES · EMOTIONAL CONNECTION</span>
+            </div>
+            <h2 class="section-title">Meet Your Wildlife</h2>
+            <p class="section-subtitle center">
+              Bukan sekadar maskot atau foto anonim. Di balik setiap gelang KILANA, ada satwa nyata yang sedang menjalani rehabilitasi atau dipantau di habitat alaminya oleh mitra konservasi.
+            </p>
+          </div>
+
+          <!-- Sensitive GPS Notice Alert -->
+          <div class="conservation-notice-box">
+            <div class="notice-icon">🛡️</div>
+            <div class="notice-text">
+              <strong>Wildlife Journey & Keamanan Satwa:</strong>
+              Data lokasi atau koordinat satwa yang rentan perburuan (seperti Harimau dan Gajah) ditampilkan dalam radius perkiraan (buffer zone yang disamarkan) demi keselamatan satwa sesuai kode etik perlindungan keanekaragaman hayati.
+            </div>
+          </div>
+
+          <!-- Wildlife Cards Grid -->
+          <div class="wildlife-cards-grid" id="wildlife-cards-grid">
+            <!-- Dynamically populated via JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. SCAN. DISCOVER. CARE. (Interactive Eco-Tech Experience) -->
+      <section class="section-how-it-works" id="how-it-works">
+        <div class="container">
+          <div class="how-header-row">
+            <div>
+              <div class="section-label-chip bg-coral-chip">
+                <span>INTERACTIVE EXPERIENCE · THE ECO-TECH DIFFERENTIATOR</span>
+              </div>
+              <h2 class="section-title">Scan. Discover. Care.</h2>
+              <p class="section-subtitle">
+                Tiga langkah sederhana yang menghubungkan gaya hidup sehari-harimu dengan aksi nyata di rimba Indonesia.
+              </p>
+            </div>
+          </div>
+
+          <!-- 3 Visual Step Cards -->
+          <div class="steps-grid" id="steps-grid">
+            <!-- Populated via JS / HTML -->
+          </div>
+
+          <!-- INTERACTIVE LIVE QR SCANNER SIMULATOR -->
+          <div class="scanner-simulator-wrapper">
+            <div class="scanner-sim-card">
+              <div class="sim-content">
+                <span class="sim-pill">COBA SEKARANG · LIVE SIMULATOR</span>
+                <h3>Simulasikan Pengalaman Memindai Gelang</h3>
+                <p>
+                  Belum punya gelang fisik KILANA? Coba pengalaman interaktif Digital Passport satwa sekarang dengan memilih salah satu kode tag gelang di bawah ini:
+                </p>
+
+                <div class="sim-code-buttons">
+                  <button class="code-quick-btn" data-code="OSA-014">
+                    <span class="sim-emoji">🐒</span>
+                    <span class="sim-code">OSA-014 (Orangutan Boni)</span>
+                  </button>
+                  <button class="code-quick-btn" data-code="TGS-002">
+                    <span class="sim-emoji">🐅</span>
+                    <span class="sim-code">TGS-002 (Harimau Raya)</span>
+                  </button>
+                  <button class="code-quick-btn" data-code="ELS-008">
+                    <span class="sim-emoji">🐘</span>
+                    <span class="sim-code">ELS-008 (Gajah Loka)</span>
+                  </button>
+                  <button class="code-quick-btn" data-code="PNH-031">
+                    <span class="sim-emoji">🐢</span>
+                    <span class="sim-code">PNH-031 (Penyu Kala)</span>
+                  </button>
+                </div>
+
+                <!-- Custom Code Input -->
+                <div class="sim-custom-input-group">
+                  <input type="text" id="manual-qr-input" placeholder="Atau ketik ID Gelang (misal: OSA-014)" maxlength="12" />
+                  <button class="btn-primary-coral" id="btn-submit-manual-code">
+                    Buka Tracker ↗
+                  </button>
+                </div>
+              </div>
+
+              <!-- Visual Phone Mockup Graphic -->
+              <div class="sim-graphic">
+                <div class="phone-frame">
+                  <div class="phone-camera-notch"></div>
+                  <div class="phone-screen" id="phone-screen-display">
+                    <div class="scanner-viewfinder">
+                      <div class="viewfinder-corner top-left"></div>
+                      <div class="viewfinder-corner top-right"></div>
+                      <div class="viewfinder-corner bottom-left"></div>
+                      <div class="viewfinder-corner bottom-right"></div>
+                      <div class="laser-scanner-line" id="laser-line"></div>
+                      <div class="sim-qr-center">
+                        <svg viewBox="0 0 100 100" width="80" height="80" fill="#245747">
+                          <rect x="10" y="10" width="25" height="25" fill="#245747" rx="3"/>
+                          <rect x="15" y="15" width="15" height="15" fill="#FFF5E6"/>
+                          <rect x="19" y="19" width="7" height="7" fill="#245747"/>
+                          <rect x="65" y="10" width="25" height="25" fill="#245747" rx="3"/>
+                          <rect x="70" y="15" width="15" height="15" fill="#FFF5E6"/>
+                          <rect x="74" y="19" width="7" height="7" fill="#245747"/>
+                          <rect x="10" y="65" width="25" height="25" fill="#245747" rx="3"/>
+                          <rect x="15" y="70" width="15" height="15" fill="#FFF5E6"/>
+                          <rect x="19" y="74" width="7" height="7" fill="#245747"/>
+                          <rect x="45" y="20" width="10" height="10" fill="#245747"/>
+                          <rect x="45" y="45" width="10" height="10" fill="#245747"/>
+                          <rect x="65" y="65" width="15" height="15" fill="#245747"/>
+                          <rect x="85" y="45" width="5" height="15" fill="#245747"/>
+                        </svg>
+                        <span class="qr-label">SCAN KILANA TAG</span>
+                      </div>
+                    </div>
+                    <div class="scanner-hint">Arahkan kamera ke liontin gelang</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. YOUR IMPACT, MADE VISIBLE (Transparency & Trust) -->
+      <section class="section-impact" id="impact">
+        <div class="container">
+          <div class="impact-header-block">
+            <div class="section-label-chip bg-sun-chip">
+              <span>TRANSPARENCY · TRUST-BUILDING</span>
+            </div>
+            <h2 class="section-title">Your Impact, Made Visible</h2>
+            <p class="section-subtitle center">
+              Kami percaya pada transparansi mutlak. Angka dampak yang ditampilkan adalah alokasi nyata yang dicatat dan diawasi bersama komunitas mitra konservasi.
+            </p>
+          </div>
+
+          <!-- Verified Current Impact Metrics Grid -->
+          <div class="impact-stats-grid" id="impact-stats-grid">
+            <!-- Dynamically populated via JS -->
+          </div>
+
+          <!-- Target Progress Bars (Honest Early-Stage Distinction) -->
+          <div class="targets-container">
+            <div class="targets-header">
+              <h3>🎯 Target Konservasi Aktif 2026-2027</h3>
+              <span class="target-note">Diperbarui setiap akhir bulan berdasarkan penjualan tercatat</span>
+            </div>
+            <div class="targets-list" id="targets-list">
+              <!-- Dynamically populated via JS -->
+            </div>
+          </div>
+
+          <!-- Interactive Impact Calculator -->
+          <div class="impact-calculator-card">
+            <div class="calc-header">
+              <span class="calc-badge">SIMULATOR DAMPAKMU</span>
+              <h3>Berapa banyak dampak yang bisa kamu buat bersama teman-temanmu?</h3>
+              <p>Geser penggeser di bawah ini untuk melihat kalkulasi kontribusi langsung dari pembelian gelang KILANA:</p>
+            </div>
+
+            <div class="slider-control-row">
+              <label for="impact-slider">Jumlah Gelang KILANA: <strong id="slider-count-display">3 Gelang</strong></label>
+              <input type="range" id="impact-slider" min="1" max="15" value="3" step="1" />
+            </div>
+
+            <div class="calc-results-grid">
+              <div class="calc-result-box">
+                <span class="calc-result-icon">🌳</span>
+                <strong class="calc-result-val" id="calc-trees">9 Pohon</strong>
+                <span class="calc-result-label">Bibit Buah Hutan Ditanam</span>
+              </div>
+              <div class="calc-result-box">
+                <span class="calc-result-icon">🛡️</span>
+                <strong class="calc-result-val" id="calc-patrol">18 Jam</strong>
+                <span class="calc-result-label">Operasional Patroli Anti-Jerat</span>
+              </div>
+              <div class="calc-result-box">
+                <span class="calc-result-icon">💚</span>
+                <strong class="calc-result-val" id="calc-donation">Rp 28.500</strong>
+                <span class="calc-result-label">Dana Konservasi Tersalurkan</span>
+              </div>
+              <div class="calc-result-box">
+                <span class="calc-result-icon">🪡</span>
+                <strong class="calc-result-val" id="calc-artisan">3 Pengrajin</strong>
+                <span class="calc-result-label">Didukung Upah Etis Lokal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. OUR STORY & LOCAL ARTISANS SECTION -->
+      <section class="section-story" id="story">
+        <div class="container story-grid">
+          <!-- Story Content Left -->
+          <div class="story-content">
+            <div class="section-label-chip">
+              <span>OUR STORY · THE WEAVE OF NUSANTARA</span>
+            </div>
+            <h2 class="section-title">Bukan Sekadar Aksesori, Tapi Sebuah Gerakan.</h2>
+            <div class="story-paragraphs">
+              <p>
+                KILANA lahir dari percakapan sederhana: mengapa konservasi satwa liar Indonesia seringkali terasa berjarak, terlalu berat, atau hanya muncul dalam laporan berita duka?
+              </p>
+              <p>
+                Kami percaya kepedulian bisa dimulai dari hal yang melekat pada diri kita sehari-hari. Gelang warna-warni yang playful, modern, dan bergaya streetwear, dipadukan dengan sentuhan teknologi QR yang menghubungkan pemakainya secara personal dengan satwa liar yang mereka bantu lindungi.
+              </p>
+              <p>
+                Setiap helai benang ditenun secara etis oleh komunitas perempuan perajin di Yogyakarta dan pengrajin ukir manik kayu di Bali. Dengan membeli KILANA, kamu tidak hanya menjaga rimba Indonesia tetap lestari, tapi juga memberdayakan roda ekonomi pengrajin lokal.
+              </p>
+            </div>
+
+            <!-- Artisan Mini Cards -->
+            <div class="artisan-cards-row" id="artisan-cards-row">
+              <!-- Dynamically populated via JS -->
+            </div>
+          </div>
+
+          <!-- Story Collage Right -->
+          <div class="story-visual-side">
+            <div class="story-collage-stack">
+              <div class="story-img-main">
+                <img src="https://images.unsplash.com/photo-1531983412531-1f49a365ffed?auto=format&fit=crop&w=800&q=80" alt="Ibu pengrajin anyaman sedang merajut gelang KILANA" />
+                <span class="story-img-tag">Tangan-tangan Terampil di Yogyakarta</span>
+              </div>
+              <div class="story-img-secondary">
+                <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80" alt="Kanopi hutan tropis Indonesia yang dilindungi" />
+                <span class="story-img-tag">Rimba Hutan Hujan Sumatra</span>
+              </div>
+              <div class="story-quote-card">
+                <div class="quote-stars">★★★★★</div>
+                <p>"Setiap gelang adalah bukti bahwa gaya hidup anak muda dan kelestarian alam bisa berjalan beriringan."</p>
+                <span class="quote-author">— Tim Inisiator KILANA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Customer Testimonials / Community Voices -->
+      <section class="section-community">
+        <div class="container">
+          <div class="community-header">
+            <span class="section-label-chip bg-lime-chip">VOICES OF WILDLIFE BUDDIES</span>
+            <h2 class="section-title">Apa Kata Mereka yang Sudah Mengenakannya</h2>
+          </div>
+          <div class="testimonials-grid" id="testimonials-grid">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. CLOSING CTA SECTION — Turn Attention into Action -->
+      <section class="section-closing-cta">
+        <div class="container">
+          <div class="closing-banner">
+            <div class="closing-doodle doodle-paw-left">🐾</div>
+            <div class="closing-doodle doodle-paw-right">🐾</div>
+            
+            <div class="closing-content">
+              <span class="closing-pill">JOIN THE PACK</span>
+              <h2 class="closing-title">The Wild Needs Friends Like You.</h2>
+              <p class="closing-subtitle">
+                Wear something meaningful. Help make wildlife conservation part of everyday life. Kenakan gelangmu hari ini dan jadilah bagian dari cerita mereka.
+              </p>
+              <div class="closing-cta-row">
+                <a href="#shop" class="btn-primary-coral btn-large">
+                  <span>Find Your KILANA Bracelet</span>
+                  <span class="btn-arrow">↗</span>
+                </a>
+                <button class="btn-secondary-white btn-large" id="cta-demo-scan">
+                  <span>Coba Scan Satwa Demo</span>
+                  <span class="btn-icon">⚡</span>
+                </button>
+              </div>
+              <div class="closing-perks">
+                <span>✓ Pengiriman Seluruh Indonesia</span>
+                <span>✓ Kemasan Daur Ulang Bebas Plastik</span>
+                <span>✓ Sertifikat Digital Passport Satwa</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <!-- Brand Info -->
+        <div class="footer-col brand-col">
+          <div class="footer-logo">
+            <div class="logo-mark">
+              <svg viewBox="0 0 40 40" width="30" height="30" fill="none">
+                <rect width="40" height="40" rx="8" fill="#D5EF70"/>
+                <path d="M12 28C12 20 18 14 26 14" stroke="#245747" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="28" cy="14" r="3.5" fill="#FF7867"/>
+                <circle cx="21" cy="21" r="2.5" fill="#245747"/>
+                <circle cx="14" cy="28" r="3" fill="#245747"/>
+              </svg>
+            </div>
+            <span class="footer-brand-name">KILANA</span>
+          </div>
+          <p class="footer-bio">
+            Colorful wildlife lifestyle brand. Menjembatani gaya hidup santai anak muda dengan aksi pelestarian satwa liar Indonesia secara digital dan nyata.
+          </p>
+          <div class="footer-socials">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">IG</a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok">TT</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="social-icon" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+
+        <!-- Links: Belanja -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Koleksi Gelang</h4>
+          <ul class="footer-links">
+            <li><a href="#shop" data-filter="Forest Collection">Forest Buddy (Orangutan)</a></li>
+            <li><a href="#shop" data-filter="Rimba Bold Collection">Wild Spirit (Harimau)</a></li>
+            <li><a href="#shop" data-filter="Coastal Conservation">Ocean Wanderer (Penyu)</a></li>
+            <li><a href="#shop" data-filter="Collector's Box">Nusantara Trio Pack</a></li>
+          </ul>
+        </div>
+
+        <!-- Links: Satwa & Konservasi -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Satwa Liar</h4>
+          <ul class="footer-links">
+            <li><a href="#wildlife" data-animal="OSA-014">OSA-014 (Orangutan Boni)</a></li>
+            <li><a href="#wildlife" data-animal="TGS-002">TGS-002 (Harimau Raya)</a></li>
+            <li><a href="#wildlife" data-animal="ELS-008">ELS-008 (Gajah Loka)</a></li>
+            <li><a href="#wildlife" data-animal="PNH-031">PNH-031 (Penyu Kala)</a></li>
+            <li><a href="#how-it-works">Panduan Scan QR Code</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter & Conservation Ethics -->
+        <div class="footer-col newsletter-col">
+          <h4 class="footer-heading">Kabar Dari Rimba</h4>
+          <p class="footer-subtext">Dapatkan cerita satwa terbaru dan diskon batch gelang berikutnya langsung di emailmu:</p>
+          <form class="newsletter-form" id="newsletter-form">
+            <input type="email" id="newsletter-email" placeholder="Masukkan alamat emailmu" required />
+            <button type="submit" class="btn-newsletter">Gabung ↗</button>
+          </form>
+          <div class="ethics-disclaimer">
+            <small>
+              🛡️ KILANA beroperasi secara etis dan patuh pada UU No. 5/1990 Konservasi Sumber Daya Alam Hayati. Kami tidak memelihara, mengeksploitasi, atau memperjualbelikan satwa liar.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom container">
+        <p>&copy; 2026 KILANA Indonesia. All rights reserved. Made with love for Indonesian Wildlife.</p>
+        <div class="footer-bottom-links">
+          <a href="#impact">Kebijakan Privasi & GPS Tracker</a>
+          <a href="#story">Transparansi Dana</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- INTERACTIVE WILDLIFE DIGITAL PASSPORT MODAL -->
+    <div class="modal-backdrop" id="wildlife-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="modal-card modal-wildlife" id="wildlife-modal-card">
+        <button class="modal-close-btn" id="modal-wildlife-close" aria-label="Tutup Detail Satwa">✕</button>
+        <div class="modal-body" id="wildlife-modal-body">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- INTERACTIVE SHOPPING CART DRAWER -->
+    <div class="cart-drawer-backdrop" id="cart-drawer-backdrop" aria-hidden="true">
+      <div class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Keranjang Belanja KILANA">
+        <div class="cart-drawer-header">
+          <div class="cart-header-title">
+            <h3>Keranjangmu</h3>
+            <span class="cart-count-pill" id="cart-drawer-count">0 Barang</span>
+          </div>
+          <button class="drawer-close-btn" id="cart-drawer-close" aria-label="Tutup Keranjang">✕</button>
+        </div>
+
+        <!-- Free shipping progress bar -->
+        <div class="free-shipping-box">
+          <span class="shipping-hint" id="shipping-hint">Beli 2 gelang untuk gratis ongkir se-Indonesia!</span>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="shipping-progress-bar" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <!-- Items list -->
+        <div class="cart-items-container" id="cart-items-container">
+          <div class="cart-empty-state">
+            <span class="empty-emoji">🎒</span>
+            <p>Keranjangmu masih kosong.</p>
+            <a href="#shop" class="btn-primary-coral" id="btn-browse-empty-cart">Lihat Koleksi Gelang ↗</a>
+          </div>
+        </div>
+
+        <!-- Cart Footer Checkout -->
+        <div class="cart-drawer-footer" id="cart-drawer-footer">
+          <div class="cart-subtotal-row">
+            <span>Subtotal</span>
+            <strong class="cart-subtotal-price" id="cart-subtotal-price">Rp 0</strong>
+          </div>
+          <div class="cart-impact-notice">
+            🌿 Pembelian ini akan menyumbangkan <strong id="cart-donation-preview">Rp 0</strong> langsung ke mitra perlindungan satwa!
+          </div>
+          <button class="btn-primary-coral btn-checkout w-full" id="btn-checkout">
+            Simulasikan Checkout Sekarang 🎉
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+    <!-- Script entry -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
