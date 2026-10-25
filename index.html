@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-indicator" id="scroll-progress-bar" aria-hidden="true"></div>
+
     <!-- Top Announcement Bar -->
     <aside class="announcement-bar" id="announcement-bar" aria-label="Pengumuman Penting">
       <div class="marquee-track">
@@ -254,12 +257,18 @@
           <div class="section-header-row">
             <div>
               <div class="section-label-chip">
-                <span>KATALOG KILANA</span>
+                <span>KATALOG & PRICELIST KILANA</span>
               </div>
               <h2 class="section-title">Pilih Gelang Sahabat Rimba</h2>
               <p class="section-subtitle">
-                Dirajut tangan penuh warna dari bahan daur ulang, tiap gelang terhubung langsung ke satwa nyata yang lagi dirawat ranger di alam liar.
+                Dirajut tangan penuh warna dari bahan daur ulang, tiap gelang terhubung langsung ke satwa nyata di alam liar. Koleksi kami hadir dalam edisi <strong>Basic (Rp149rb)</strong>, <strong>Signature (Rp199rb)</strong>, <strong>Limited Edition (Rp249rb)</strong>, dan <strong>Set 3 Gelang (Rp349rb)</strong>.
               </p>
+              <div class="pricelist-quick-jump">
+                <a href="#pricelist-card" class="btn-quick-pricelist">
+                  <span>📋 Cek Tabel Pricelist & Spesifikasi Edisi</span>
+                  <span class="arrow-down">↓</span>
+                </a>
+              </div>
             </div>
 
             <!-- Filter Pills -->
@@ -273,6 +282,127 @@
           <!-- Product Grid Container -->
           <div class="products-grid" id="products-grid">
             <!-- Dynamically populated via JavaScript -->
+          </div>
+
+          <!-- Official Pricelist & Variant Comparison Card -->
+          <div class="pricelist-showcase-card" id="pricelist-card">
+            <div class="pricelist-card-header">
+              <div class="pricelist-title-group">
+                <div class="pricelist-badge-chip">
+                  <span>📋 DAFTAR HARGA RESMI</span>
+                </div>
+                <h3 class="pricelist-headline">Pricelist & Spesifikasi Edisi Gelang</h3>
+                <p class="pricelist-lead">
+                  Tiap gelang KILANA dirancang khusus dalam kategori edisinya masing-masing dengan keunikan material, aksesori pelengkap, dan dampak konservasi nyata.
+                </p>
+              </div>
+              <div class="pricelist-impact-shield">
+                <span class="shield-icon">🛡️</span>
+                <div class="shield-text">
+                  <strong>Konservasi Nyata 10%</strong>
+                  <span>Tiap pembelian gelang langsung mendanai pakan, medis, & patroli ranger satwa liar.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pricelist-table-responsive">
+              <table class="kilana-pricelist-table" aria-label="Tabel Pricelist Edisi KILANA">
+                <thead>
+                  <tr>
+                    <th scope="col" class="th-variant">Edisi / Varian</th>
+                    <th scope="col" class="th-price">Harga</th>
+                    <th scope="col" class="th-features">Kelengkapan Paket</th>
+                    <th scope="col" class="th-passport">Akses & Fasilitas</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="tier-row row-basic">
+                    <td class="td-variant">
+                      <div class="tier-title-box">
+                        <strong class="tier-name">Basic</strong>
+                        <span class="tier-badge-pill badge-basic">Esensial</span>
+                      </div>
+                    </td>
+                    <td class="td-price">
+                      <div class="price-val-box">
+                        <span class="price-currency">Rp</span>
+                        <span class="price-number">149.000</span>
+                      </div>
+                    </td>
+                    <td class="td-features">
+                      <p>Gelang anyaman tali daur ulang tahan air + liontin satwa ukiran perajin lokal + kartu identitas satwa.</p>
+                    </td>
+                    <td class="td-passport">
+                      <span class="digital-tag">🌱 Paspor Digital QR</span>
+                    </td>
+                  </tr>
+
+                  <tr class="tier-row row-signature popular-row">
+                    <td class="td-variant">
+                      <div class="tier-title-box">
+                        <strong class="tier-name">Signature</strong>
+                        <span class="tier-badge-pill badge-signature">Paling Populer ⭐</span>
+                      </div>
+                    </td>
+                    <td class="td-price">
+                      <div class="price-val-box highlight-price">
+                        <span class="price-currency">Rp</span>
+                        <span class="price-number">199.000</span>
+                      </div>
+                    </td>
+                    <td class="td-features">
+                      <p>Medali giok ukir satwa premium + liontin daun alam + kantong serut blacu ramah lingkungan KILANA.</p>
+                    </td>
+                    <td class="td-passport">
+                      <span class="digital-tag highlight-digital">✨ QR Paspor + Kisah Lapangan</span>
+                    </td>
+                  </tr>
+
+                  <tr class="tier-row row-limited">
+                    <td class="td-variant">
+                      <div class="tier-title-box">
+                        <strong class="tier-name">Limited Edition</strong>
+                        <span class="tier-badge-pill badge-limited">Kolektor 🪶</span>
+                      </div>
+                    </td>
+                    <td class="td-price">
+                      <div class="price-val-box">
+                        <span class="price-currency">Rp</span>
+                        <span class="price-number">249.000</span>
+                      </div>
+                    </td>
+                    <td class="td-features">
+                      <p>Medali ukir edisi terbatas nomor seri eksklusif + kotak bambu ramah lingkungan + sertifikat adopsi fisik resmi ranger.</p>
+                    </td>
+                    <td class="td-passport">
+                      <span class="digital-tag">📜 Sertifikat Resmi & Update 24/7</span>
+                    </td>
+                  </tr>
+
+                  <tr class="tier-row row-duo">
+                    <td class="td-variant">
+                      <div class="tier-title-box">
+                        <strong class="tier-name">Set <small class="duo-sub">(3 Gelang)</small></strong>
+                        <span class="tier-badge-pill badge-duo">Set Bundling 🎁</span>
+                      </div>
+                    </td>
+                    <td class="td-price">
+                      <div class="price-val-box">
+                        <span class="price-currency">Rp</span>
+                        <span class="price-number">349.000</span>
+                        <small class="price-note-duo">Paket lengkap 3 gelang satwa</small>
+                      </div>
+                    </td>
+                    <td class="td-features">
+                      <p>Set 3 gelang rajut satwa lengkap (Orangutan, Jalak Bali & Sahabat) + 3 pouch blacu & kartu adopsi + kotak bambu artisanal.</p>
+                    </td>
+                    <td class="td-passport">
+                      <span class="digital-tag duo-digital">🚀 Otomatis Gratis Ongkir</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <!-- Shop Assurance Banner -->
@@ -360,9 +490,9 @@
                     <span class="sim-emoji">🐘</span>
                     <span class="sim-code">ELS-008 (Gajah Loka)</span>
                   </button>
-                  <button class="code-quick-btn" data-code="PNH-031">
-                    <span class="sim-emoji">🐢</span>
-                    <span class="sim-code">PNH-031 (Penyu Kala)</span>
+                  <button class="code-quick-btn" data-code="JLK-019">
+                    <span class="sim-emoji">🪶</span>
+                    <span class="sim-code">JLK-019 (Jalak Bali Aero)</span>
                   </button>
                 </div>
 
@@ -623,7 +753,7 @@
             <li><a href="#wildlife" data-animal="OSA-014">OSA-014 (Orangutan Boni)</a></li>
             <li><a href="#wildlife" data-animal="TGS-002">TGS-002 (Harimau Raya)</a></li>
             <li><a href="#wildlife" data-animal="ELS-008">ELS-008 (Gajah Loka)</a></li>
-            <li><a href="#wildlife" data-animal="PNH-031">PNH-031 (Penyu Kala)</a></li>
+            <li><a href="#wildlife" data-animal="JLK-019">JLK-019 (Jalak Bali Aero)</a></li>
             <li><a href="#how-it-works">Panduan & Cara Scan QR</a></li>
           </ul>
         </div>

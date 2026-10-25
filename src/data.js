@@ -112,36 +112,6 @@ export const WILDLIFE_DATA = [
     }
   },
   {
-    id: "PNH-031",
-    name: "Kala",
-    nickname: "Pengelana Samudra Tropis",
-    species: "Penyu Hijau",
-    scientificName: "Chelonia mydas",
-    status: "Riset Satelit & Adopsi Sarang",
-    statusType: "release",
-    badgeText: "Sarang Bertelur Dilindungi",
-    habitat: "Pulau Sangalaki & Derawan, Kalimantan Timur",
-    gpsNote: "📍 Lokasi sarang dijaga ketat oleh penjaga pantai lokal dari pencurian telur.",
-    gpsCoords: "2.0911, 118.4011 (Zona Perlindungan Karang)",
-    image: "https://images.unsplash.com/photo-1518467166778-b88f373ffec7?auto=format&fit=crop&w=1000&q=80",
-    story: "Kala adalah penyu hijau dewasa yang rutin mampir bertelur di pulau terluar Berau. Sarang telurnya dijagain dan dipindahkan hati-hati oleh relawan ke pos penetasan pasir semi-alami biar aman dari incaran predator dan sapuan ombak pasang.",
-    latestUpdate: "September 2026: 94 butir telur dari sarang Kala berhasil menetas 100%! Tukik-tukik mungil ini langsung dilepasliarkan ke laut lepas pas air pasang senja.",
-    connectedBracelet: "Set Gelang Rajut dengan Liontin Satwa",
-    braceletId: "prod-trio-bundle",
-    monitoringPartner: "Turtle Conservation Community & Coral Reef Foundation Berau",
-    journeyMilestones: [
-      { date: "Juli 2025", title: "Pemasangan Microchip Flipper Tag", desc: "Tag nomor ID Indonesia resmi disematkan pada sirip depan kiri." },
-      { date: "Juni 2026", title: "Pencatatan Sarang Siklus Ke-4", desc: "Bertelur di pantai pasir karang Sangalaki tengah malam." },
-      { date: "September 2026", title: "Pelepasan 94 Tukik", desc: "Tukik generasi baru mengarungi arus lautan Indonesia." }
-    ],
-    vitalStats: {
-      age: "Perkiraan 28 Tahun",
-      gender: "Betina",
-      diet: "Lamun Laut (Seagrass) & Alga Karang",
-      healthCondition: "Kerapas Bersih & Kuat"
-    }
-  },
-  {
     id: "JLK-019",
     name: "Aero",
     nickname: "Sang Sayap Putih Dewata",
@@ -173,14 +143,79 @@ export const WILDLIFE_DATA = [
   }
 ];
 
+export const PRICELIST_VARIANTS = {
+  basic: {
+    key: "basic",
+    name: "Basic",
+    price: 149000,
+    priceFormatted: "Rp 149.000",
+    badge: "Esensial",
+    description: "Tali anyaman tahan air daur ulang + Liontin satwa & akses Paspor Digital QR.",
+    included: [
+      "1x Gelang anyam tali nilon daur ulang tahan air",
+      "1x Liontin satwa ramah lingkungan",
+      "Akses Paspor Digital QR pemantauan satwa liar",
+      "10% donasi konservasi resmi"
+    ]
+  },
+  signature: {
+    key: "signature",
+    name: "Signature",
+    price: 199000,
+    priceFormatted: "Rp 199.000",
+    badge: "Paling Populer ⭐",
+    description: "Medali ukir satwa premium + Charm alam + Kantong blacu ramah lingkungan.",
+    included: [
+      "1x Gelang anyam premium detail ganda",
+      "1x Medali ukir satwa premium + charm alam",
+      "Kantong serut blacu ramah lingkungan KILANA",
+      "Kartu kisah satwa bernomor registrasi",
+      "Akses Paspor Digital QR interaktif 24/7"
+    ]
+  },
+  limited: {
+    key: "limited",
+    name: "Limited Edition",
+    price: 249000,
+    priceFormatted: "Rp 249.000",
+    badge: "Edisi Kolektor 🪶",
+    description: "Edisi kolektor terbatas + Kotak bambu ramah lingkungan + Sertifikat resmi ranger.",
+    included: [
+      "1x Gelang edisi terbatas nomor seri eksklusif",
+      "Medali ukir khusus kolektor dengan sentuhan batu alam",
+      "Kotak kemasan bambu artisanal perajin lokal",
+      "Sertifikat adopsi fisik bertanda tangan ranger lapangan",
+      "Akses prioritas live update kabar konservasi"
+    ]
+  },
+  set: {
+    key: "set",
+    name: "Set (3 Gelang)",
+    price: 349000,
+    priceFormatted: "Rp 349.000",
+    badge: "Set Bundling 🎁",
+    quantity: 3,
+    description: "Set 3 gelang rajut eksklusif satwa nusantara. Otomatis dapat Gratis Ongkir!",
+    included: [
+      "3x Gelang rajut satwa lengkap (Orangutan, Jalak Bali & Sahabat)",
+      "3x Kantong serut blacu ramah lingkungan KILANA",
+      "3x Kartu adopsi satwa resmi bernomor registrasi",
+      "Kotak kemasan bambu artisanal eksklusif",
+      "Otomatis dapat Gratis Ongkir ke seluruh Indonesia"
+    ]
+  }
+};
+
 export const PRODUCTS_DATA = [
   {
     id: "prod-forest-buddy",
     name: "Gelang Tali Biru dengan Pesona Orangutan",
     collection: "Koleksi Satwa Rimba",
     tagline: "Anyaman tali biru elegan berpadu pesona ukir Orangutan Sumatra",
-    price: 89000,
-    priceFormatted: "Rp 89.000",
+    edition: "basic",
+    editionName: "Basic",
+    price: 149000,
+    priceFormatted: "Rp 149.000",
     rating: 4.9,
     reviewsCount: 142,
     colors: ["#1E3A8A", "#0284C7", "#D97706"],
@@ -190,10 +225,12 @@ export const PRODUCTS_DATA = [
     image: orangutanBraceletImg,
     secondaryImage: orangutanBraceletImg,
     materials: "100% Tali Anyam Biru Tahan Air + Medali Ukir Orangutan & Liontin Daun Buatan Tangan",
+    includedSnippet: "Gelang tali tahan air + liontin satwa & Paspor Digital QR",
     storySnippet: "Tiap beli gelang ini, kamu bantu danai 3 bibit pohon buah hutan buat habitat Boni di Jambi.",
+    braceletsCount: 1,
     isBestseller: true,
     isNew: false,
-    badgeText: "Paling Laris 🌿",
+    badgeText: "Edisi Basic 🌿",
     badgeColor: "lime"
   },
   {
@@ -201,8 +238,10 @@ export const PRODUCTS_DATA = [
     name: "Gelang Tali Hijau dengan Medali Harimau",
     collection: "Koleksi Satwa Rimba",
     tagline: "Anyaman hijau tangguh dengan medali giok ukir Harimau Sumatra pemberani",
-    price: 99000,
-    priceFormatted: "Rp 99.000",
+    edition: "signature",
+    editionName: "Signature",
+    price: 199000,
+    priceFormatted: "Rp 199.000",
     rating: 5.0,
     reviewsCount: 98,
     colors: ["#2D5A27", "#4D7C0F", "#D97706"],
@@ -212,10 +251,12 @@ export const PRODUCTS_DATA = [
     image: harimauBraceletImg,
     secondaryImage: harimauBraceletImg,
     materials: "Tali Anyam Hijau Tahan Air (Waterproof) + Medali Giok Ukir Harimau Sumatra & Manik Hijau Rimba",
+    includedSnippet: "Medali giok ukir + pouch serut blacu + Paspor Digital QR",
     storySnippet: "Bantu danai jam patroli anti-jerat kawat tim ranger di koridor Harimau Raya.",
+    braceletsCount: 1,
     isBestseller: false,
     isNew: true,
-    badgeText: "Rilis Terbaru 🔥",
+    badgeText: "Edisi Signature ⭐",
     badgeColor: "coral"
   },
   {
@@ -223,8 +264,10 @@ export const PRODUCTS_DATA = [
     name: "Gelang Kepang Merah dengan Medali Gajah",
     collection: "Koleksi Satwa Rimba",
     tagline: "Kepangan merah gagah berpadu medali ukir Gajah Sumatra penjaga bumi",
-    price: 95000,
-    priceFormatted: "Rp 95.000",
+    edition: "basic",
+    editionName: "Basic",
+    price: 149000,
+    priceFormatted: "Rp 149.000",
     rating: 4.8,
     reviewsCount: 67,
     colors: ["#B91C1C", "#EF4444", "#7F1D1D"],
@@ -234,10 +277,12 @@ export const PRODUCTS_DATA = [
     image: elephantBraceletImg,
     secondaryImage: elephantBraceletImg,
     materials: "Anyaman Tali Kepang Merah Tahan Air + Medali Marmer Ukir Gajah Sumatra Buatan Tangan",
+    includedSnippet: "Gelang tali kepang merah + liontin marmer & Paspor Digital QR",
     storySnippet: "Bantu sediakan pakan bernutrisi dan tim medis buat gajah Flying Squad Loka.",
+    braceletsCount: 1,
     isBestseller: false,
     isNew: false,
-    badgeText: "Pahlawan Konservasi 🐘",
+    badgeText: "Edisi Basic 🐘",
     badgeColor: "sun"
   },
   {
@@ -245,8 +290,10 @@ export const PRODUCTS_DATA = [
     name: "Gelang Kepang dengan Pesona Burung Myna",
     collection: "Koleksi Satwa Rimba",
     tagline: "Kepangan hitam elegan dengan pesona ukir Jalak Bali (Myna) & liontin bunga",
-    price: 99000,
-    priceFormatted: "Rp 99.000",
+    edition: "limited",
+    editionName: "Limited Edition",
+    price: 249000,
+    priceFormatted: "Rp 249.000",
     rating: 5.0,
     reviewsCount: 54,
     colors: ["#18181B", "#F4F4F5", "#A1A1AA"],
@@ -256,10 +303,12 @@ export const PRODUCTS_DATA = [
     image: mynaBraceletImg,
     secondaryImage: mynaBraceletImg,
     materials: "Tali Kepang Hitam Halus + Medali Ukir Jalak Bali (Myna), Charm Bunga Mutiara & Daun Akrilik",
+    includedSnippet: "Edisi kolektor nomor seri + kotak bambu + sertifikat fisik",
     storySnippet: "Dukung penangkaran dan adopsi burung Jalak Bali Aero di Taman Nasional Bali Barat.",
+    braceletsCount: 1,
     isBestseller: false,
     isNew: true,
-    badgeText: "Edisi Terbatas 🪶",
+    badgeText: "Limited Edition 🪶",
     badgeColor: "coral"
   },
   {
@@ -267,8 +316,10 @@ export const PRODUCTS_DATA = [
     name: "Set Gelang Rajut dengan Liontin Satwa",
     collection: "Kotak Kolektor Bundling",
     tagline: "Set 3 gelang rajut eksklusif dengan liontin sahabat satwa nusantara",
-    price: 249000,
-    priceFormatted: "Rp 249.000",
+    edition: "set",
+    editionName: "Set (3 Gelang)",
+    price: 349000,
+    priceFormatted: "Rp 349.000",
     rating: 5.0,
     reviewsCount: 88,
     colors: ["#1E3A8A", "#7C3AED", "#18181B"],
@@ -278,10 +329,12 @@ export const PRODUCTS_DATA = [
     image: bundleBraceletImg,
     secondaryImage: bundleBraceletImg,
     materials: "Set 3 Gelang Rajut Satwa Lengkap + Kotak Bambu Ramah Lingkungan + 3 Kartu Adopsi Satwa Resmi Bertanda Tangan Ranger",
+    includedSnippet: "Paket lengkap 3 gelang rajut + kotak bambu + Gratis Ongkir 🚀",
     storySnippet: "Paket bundling paling hemat buat kado bermakna dengan dampak konservasi 3x lipat!",
+    braceletsCount: 3,
     isBestseller: true,
     isNew: false,
-    badgeText: "Paling Hemat 🎁",
+    badgeText: "Set 3 Gelang 🎁",
     badgeColor: "sun"
   }
 ];
@@ -301,9 +354,9 @@ export const IMPACT_METRICS = {
       icon: "users"
     },
     {
-      value: "5",
+      value: "4",
       label: "Spesies Kunci Didukung",
-      sublabel: "Orangutan, Harimau, Gajah, Penyu Hijau, & Jalak Bali.",
+      sublabel: "Orangutan, Harimau, Gajah, & Jalak Bali.",
       icon: "shield-check"
     },
     {
@@ -329,11 +382,11 @@ export const IMPACT_METRICS = {
       desc: "Bibit pohon ara dan durian liar ditanam di zona restorasi Bukit Tigapuluh."
     },
     {
-      metric: "1.000 Sarang",
-      current: "480 Sarang",
+      metric: "500 Burung",
+      current: "240 Burung",
       percent: 48,
-      title: "Penjagaan Sarang Penyu Berau",
-      desc: "Melindungi penetasan tukik dari bahaya pemburu liar dan pasang ombak."
+      title: "Penangkaran Curik Jalak Bali",
+      desc: "Mendukung sarang buatan dan program habituasi di Taman Nasional Bali Barat."
     }
   ]
 };

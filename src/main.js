@@ -8,6 +8,7 @@ import {
   BRAND_INFO, 
   WILDLIFE_DATA, 
   PRODUCTS_DATA, 
+  PRICELIST_VARIANTS,
   IMPACT_METRICS, 
   HOW_IT_WORKS_STEPS, 
   ARTISAN_STORIES, 
@@ -19,7 +20,8 @@ const state = {
   cart: [],
   selectedProductFilter: 'all',
   activeAnimalModal: null,
-  isScannerOpen: false
+  isScannerOpen: false,
+  selectedVariants: {} // prodId -> variantKey ('basic', 'signature', 'limited', 'duo')
 };
 
 // Initialize Application on DOM Ready
@@ -39,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initModals();
   initNewsletter();
   initHeroActions();
+  initScrollAnimations();
 });
 
 // ==========================================================================
@@ -157,6 +160,7 @@ function renderProducts() {
 
       <div class="product-info">
         <span class="product-collection-sub">${prod.collection}</span>
+        
         <h3 class="product-title">${prod.name}</h3>
         <p class="product-tagline">${prod.tagline}</p>
 
@@ -165,10 +169,16 @@ function renderProducts() {
           <span class="color-names-hint">${prod.colorNames}</span>
         </div>
 
+        <div class="product-included-box">
+          <span class="included-box-icon">📦</span>
+          <span class="included-box-text">${prod.includedSnippet}</span>
+        </div>
+
         <div class="product-footer-row">
           <div class="product-price-box">
             <span class="price-label">Harga</span>
             <span class="product-price">${prod.priceFormatted}</span>
+            <small class="price-note-unit">${prod.edition === 'set' ? 'Set 3 Gelang · Gratis Ongkir 🚀' : 'sudah termasuk donasi 10%'}</small>
           </div>
 
           <div class="product-actions-btn-group">
@@ -183,12 +193,11 @@ function renderProducts() {
 
   // Attach event listeners to Add to Cart buttons
   grid.querySelectorAll('.btn-add-cart').forEach(btn => {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', () => {
       const prodId = btn.getAttribute('data-product-id');
       const product = PRODUCTS_DATA.find(p => p.id === prodId);
       if (product) {
         addToCart(product);
-        // Micro animation on button
         btn.classList.add('added-pulse');
         setTimeout(() => btn.classList.remove('added-pulse'), 500);
       }
@@ -202,6 +211,8 @@ function renderProducts() {
       openWildlifeModal(animalId);
     });
   });
+
+  observeDynamicCards();
 }
 
 // ==========================================================================
@@ -283,6 +294,8 @@ function renderWildlifeCards() {
       }
     });
   });
+
+  observeDynamicCards();
 }
 
 // ==========================================================================
@@ -665,11 +678,14 @@ function addToCart(product) {
   if (existing) {
     existing.quantity += 1;
   } else {
-    state.cart.push({ ...product, quantity: 1 });
+    state.cart.push({
+      ...product,
+      quantity: 1
+    });
   }
 
   updateCartUI();
-  showToast(`🎒 Asyik! ${product.name} berhasil masuk keranjang!`);
+  showToast(`🎒 Asyik! ${product.name} (Edisi ${product.editionName}) berhasil masuk keranjang!`);
   openCartDrawer();
 }
 
@@ -682,21 +698,21 @@ function updateCartUI() {
   const shippingProgressBar = document.getElementById('shipping-progress-bar');
   const shippingHint = document.getElementById('shipping-hint');
 
-  const totalItems = state.cart.reduce((sum, item) => sum + item.quantity, 0);
+  const totalBracelets = state.cart.reduce((sum, item) => sum + (item.quantity * (item.braceletsCount || 1)), 0);
   const totalPrice = state.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const donation10Percent = Math.round(totalPrice * 0.1);
 
-  if (countBadge) countBadge.textContent = totalItems;
-  if (drawerCount) drawerCount.textContent = `${totalItems} Gelang`;
+  if (countBadge) countBadge.textContent = totalBracelets;
+  if (drawerCount) drawerCount.textContent = `${totalBracelets} Gelang`;
 
   // Free shipping threshold (2 items)
   if (shippingProgressBar && shippingHint) {
-    const progressPercent = Math.min((totalItems / 2) * 100, 100);
+    const progressPercent = Math.min((totalBracelets / 2) * 100, 100);
     shippingProgressBar.style.width = `${progressPercent}%`;
-    if (totalItems >= 2) {
+    if (totalBracelets >= 2) {
       shippingHint.innerHTML = '🎉 <strong>Keren! Kamu dapet Gratis Ongkir ke seluruh Indonesia!</strong>';
     } else {
-      shippingHint.textContent = `Tinggal tambah ${2 - totalItems} gelang lagi buat dapet Gratis Ongkir se-Indonesia! 🚀`;
+      shippingHint.textContent = `Tinggal tambah ${2 - totalBracelets} gelang lagi buat dapet Gratis Ongkir se-Indonesia! 🚀`;
     }
   }
 
@@ -725,8 +741,12 @@ function updateCartUI() {
       <img src="${item.image}" alt="${item.name}" class="cart-item-img" />
       <div class="cart-item-info">
         <strong class="cart-item-name">${item.name}</strong>
+        <div class="cart-item-variant-chip">
+          <span class="cart-v-tag">Edisi: <strong>${item.editionName}</strong></span>
+          ${(item.braceletsCount || 1) > 1 ? `<span class="cart-v-duo-tag">Paket ${item.braceletsCount} Gelang</span>` : ''}
+        </div>
         <span class="cart-item-animal">🐾 Terhubung: ${item.animalName}</span>
-        <div class="cart-item-price">Rp ${(item.price * item.quantity).toLocaleString('id-ID')}</div>
+        <div class="cart-item-price">Rp ${(item.price * item.quantity).toLocaleString('id-ID')} ${(item.braceletsCount || 1) > 1 ? `<small class="price-duo-hint">(${item.braceletsCount} gelang)</small>` : ''}</div>
 
         <div class="cart-item-stepper">
           <button class="stepper-btn" data-action="decrease" data-id="${item.id}">−</button>
@@ -827,3 +847,127 @@ function initNewsletter() {
     });
   }
 }
+
+// ==========================================================================
+// SCROLL MOTION & ANIMATIONS
+// ==========================================================================
+function initScrollAnimations() {
+  const progressBar = document.getElementById('scroll-progress-bar');
+  const header = document.getElementById('site-header');
+  const rotatingSticker = document.getElementById('sticker-rotating');
+
+  // 1. Smooth Scroll Progress & Header Dynamic Elevation
+  let ticking = false;
+
+  const handleScroll = () => {
+    const scrollY = window.scrollY || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+    // Progress bar fill percentage
+    if (progressBar && scrollHeight > 0) {
+      const progress = Math.min((scrollY / scrollHeight) * 100, 100);
+      progressBar.style.width = `${progress}%`;
+    }
+
+    // Header shadow & glassmorphism on scroll
+    if (header) {
+      header.classList.toggle('scrolled', scrollY > 25);
+    }
+
+    // Dynamic rotation accent on hero sticker while scrolling
+    if (rotatingSticker) {
+      const rotationDeg = (scrollY * 0.12) % 360;
+      rotatingSticker.style.transform = `rotate(${rotationDeg}deg)`;
+    }
+
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(handleScroll);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  handleScroll();
+
+  // 2. Section Containers Reveal Observer
+  const sectionContainers = document.querySelectorAll(`
+    .section-header-row,
+    .how-header-row,
+    .wildlife-header-row,
+    .impact-header-row,
+    .story-header-row,
+    .features-bar,
+    .pricelist-showcase-card,
+    .shop-guarantee-card,
+    .calculator-card,
+    .scanner-interactive-card,
+    .hero-proof-bar,
+    .collaboration-strip
+  `);
+
+  const containerObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '0px 0px -40px 0px',
+    threshold: 0.08
+  });
+
+  sectionContainers.forEach(el => {
+    el.classList.add('reveal-on-scroll');
+    containerObserver.observe(el);
+  });
+
+  // 3. Dynamic Cards & Interactive Components Staggered Reveal
+  observeDynamicCards();
+}
+
+function observeDynamicCards() {
+  const cardElements = document.querySelectorAll(`
+    .product-card,
+    .wildlife-card,
+    .feature-item,
+    .step-card,
+    .impact-stat-card,
+    .target-card,
+    .artisan-card,
+    .testimonial-card
+  `);
+
+  const cardObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '0px 0px -30px 0px',
+    threshold: 0.06
+  });
+
+  cardElements.forEach(card => {
+    if (!card.classList.contains('reveal-on-scroll')) {
+      card.classList.add('reveal-on-scroll');
+      
+      const parent = card.parentNode;
+      if (parent) {
+        const siblings = Array.from(parent.children);
+        const idx = siblings.indexOf(card);
+        const delay = Math.min((idx >= 0 ? idx : 0) * 0.07, 0.35);
+        card.style.transitionDelay = `${delay}s`;
+      }
+    }
+    cardObserver.observe(card);
+  });
+}
+
