@@ -141,7 +141,7 @@ function renderProducts() {
 
   const filtered = state.selectedProductFilter === 'all'
     ? PRODUCTS_DATA
-    : PRODUCTS_DATA.filter(p => p.collection === state.selectedProductFilter);
+    : PRODUCTS_DATA.filter(p => p.collection === state.selectedProductFilter || p.id === state.selectedProductFilter);
 
   grid.innerHTML = filtered.map(prod => `
     <article class="product-card" id="card-${prod.id}">
@@ -264,9 +264,21 @@ function renderWildlifeCards() {
   container.querySelectorAll('.connected-product-link').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
+      const bId = link.getAttribute('data-bracelet-id');
       const shopSec = document.getElementById('shop');
       if (shopSec) {
+        state.selectedProductFilter = 'all';
+        const filterButtons = document.querySelectorAll('.filter-pill');
+        filterButtons.forEach(b => b.classList.toggle('active', b.getAttribute('data-filter') === 'all'));
+        renderProducts();
         shopSec.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+          const targetCard = document.getElementById(`card-${bId}`);
+          if (targetCard) {
+            targetCard.classList.add('highlight-pulse');
+            setTimeout(() => targetCard.classList.remove('highlight-pulse'), 1800);
+          }
+        }, 350);
         showToast('Yuk intip gelang terkait di katalog kami ✨');
       }
     });
