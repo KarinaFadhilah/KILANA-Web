@@ -668,10 +668,6 @@ input, select, textarea {
 
 .headline-highlight {
   color: var(--color-forest);
-  position: relative;
-  display: inline-block;
-  background: linear-gradient(180deg, transparent 65%, var(--color-lime) 65%);
-  padding: 0 4px;
 }
 
 .hero-description {

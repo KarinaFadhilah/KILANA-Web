@@ -112,6 +112,27 @@ function renderProductFilters() {
       renderProducts();
     });
   });
+
+  // Footer & external filter links
+  document.querySelectorAll('a[data-filter]').forEach(link => {
+    link.addEventListener('click', () => {
+      const filter = link.getAttribute('data-filter');
+      buttons.forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-filter') === filter);
+      });
+      state.selectedProductFilter = filter;
+      renderProducts();
+    });
+  });
+
+  // Footer animal links
+  document.querySelectorAll('a[data-animal]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const animalId = link.getAttribute('data-animal');
+      openWildlifeModal(animalId);
+    });
+  });
 }
 
 function renderProducts() {
@@ -125,7 +146,7 @@ function renderProducts() {
   grid.innerHTML = filtered.map(prod => `
     <article class="product-card" id="card-${prod.id}">
       <div class="product-media">
-        <img src="${prod.image}" alt="${prod.name} KILANA bracelet" class="product-img" loading="lazy" />
+        <img src="${prod.image}" alt="Gelang KILANA ${prod.name}" class="product-img" loading="lazy" />
         <span class="product-tag-chip tag-chip-${prod.badgeColor}">${prod.badgeText}</span>
         
         <button class="product-animal-badge" data-animal-id="${prod.animalId}" title="Lihat profil ${prod.animalName}">
@@ -220,7 +241,7 @@ function renderWildlifeCards() {
 
         <div class="wildlife-card-footer">
           <button class="btn-open-wildlife-modal" data-animal-id="${animal.id}">
-            <span>Buka Digital Passport Satwa</span>
+            <span>Buka Paspor Digital Satwa</span>
             <span>📖</span>
           </button>
           <a class="connected-product-link" data-bracelet-id="${animal.braceletId}">
@@ -246,7 +267,7 @@ function renderWildlifeCards() {
       const shopSec = document.getElementById('shop');
       if (shopSec) {
         shopSec.scrollIntoView({ behavior: 'smooth' });
-        showToast('Lihat koleksi gelang terkait di katalog belanja ✨');
+        showToast('Yuk intip gelang terkait di katalog kami ✨');
       }
     });
   });
@@ -292,7 +313,7 @@ function initScannerSimulator() {
       if (code) {
         triggerScannerSimulation(code);
       } else {
-        showToast('Silakan masukkan ID kode satwa (misal: OSA-014)');
+        showToast('Ketik dulu ID kode satwanya ya (contoh: OSA-014) 😉');
       }
     });
 
@@ -323,7 +344,7 @@ function triggerScannerSimulation(code) {
     laser.style.backgroundColor = '#D5EF70';
   }
 
-  showToast(`🔍 Memindai Tag KILANA [${code}]...`);
+  showToast(`🔍 Lagi scan kode tag KILANA [${code}]...`);
 
   // Simulated scan delay
   setTimeout(() => {
@@ -335,7 +356,7 @@ function triggerScannerSimulation(code) {
     // Match code to animal
     const animal = WILDLIFE_DATA.find(a => a.id.toUpperCase() === code.toUpperCase());
     if (animal) {
-      showToast(`✨ Kode Terverifikasi: ${animal.name} (${animal.species})!`);
+      showToast(`✨ Yeay! Ketemu profil ${animal.name} si ${animal.species}!`);
       // Trigger subtle celebration
       confetti({
         particleCount: 45,
@@ -345,7 +366,7 @@ function triggerScannerSimulation(code) {
       });
       openWildlifeModal(animal.id);
     } else {
-      showToast(`⚠️ Kode ${code} belum terdaftar. Menampilkan satwa rekomendasi OSA-014.`);
+      showToast(`⚠️ Kode [${code}] belum ketemu nih. Yuk intip satwa rekomendasi kita: Boni (OSA-014)!`);
       openWildlifeModal('OSA-014');
     }
   }, 900);
@@ -370,7 +391,7 @@ function openWildlifeModal(animalId) {
       <div class="wildlife-modal-details">
         <div class="modal-id-badge">
           <span>🐾</span>
-          <span>DIGITAL PASSPORT · ${animal.id}</span>
+          <span>PASPOR DIGITAL · ${animal.id}</span>
         </div>
 
         <h2 class="modal-wildlife-title">${animal.name}</h2>
@@ -385,14 +406,14 @@ function openWildlifeModal(animalId) {
 
         <!-- Latest Update -->
         <div style="background-color: var(--color-lime-light); border-left: 4px solid var(--color-forest); padding: 0.85rem 1.1rem; border-radius: 4px; margin-bottom: 1.5rem;">
-          <strong style="color: var(--color-forest); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 4px;">Pembaruan Terkini dari Mitra</strong>
+          <strong style="color: var(--color-forest); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 4px;">Kabar Terbaru dari Lapangan</strong>
           <p style="font-size: 0.88rem; color: var(--color-forest-dark); margin: 0;">${animal.latestUpdate}</p>
           <small style="color: var(--color-text-muted); font-size: 0.75rem; display: block; margin-top: 6px;">Mitra Lapangan: ${animal.monitoringPartner}</small>
         </div>
 
         <!-- Timeline of milestones -->
         <div class="modal-timeline-section">
-          <h4>Jejak Perjalanan & Rehabilitasi</h4>
+          <h4>Jejak Petualangan & Rehabilitasi</h4>
           <div class="timeline-list">
             ${animal.journeyMilestones.map(m => `
               <div class="timeline-item">
@@ -407,11 +428,11 @@ function openWildlifeModal(animalId) {
         <!-- Connected Bracelet Box -->
         <div class="modal-connected-box">
           <div class="modal-connected-texts">
-            <strong>Gelang Terhubung: ${animal.connectedBracelet}</strong>
-            <span>10% dari setiap gelang ini mendanai perawatan & perlindungan ${animal.name}.</span>
+            <strong>Gelang Terkait: ${animal.connectedBracelet}</strong>
+            <span>10% dari tiap pembelian gelang ini langsung bantu rawat & jaga ${animal.name}.</span>
           </div>
           <button class="btn-primary-coral" id="btn-modal-buy-bracelet" data-bracelet-id="${animal.braceletId}">
-            Beli Gelang Ini ↗
+            Pilih Gelang Ini ↗
           </button>
         </div>
       </div>
@@ -586,7 +607,7 @@ function initCartDrawer() {
   if (checkoutBtn) {
     checkoutBtn.addEventListener('click', () => {
       if (state.cart.length === 0) {
-        showToast('Keranjangmu masih kosong.');
+        showToast('Keranjangmu masih kosong nih, yuk pilih gelang dulu! 😉');
         return;
       }
 
@@ -599,7 +620,7 @@ function initCartDrawer() {
       });
 
       const totalFormatted = document.getElementById('cart-subtotal-price').textContent;
-      showToast(`🎉 Terima kasih! Simulasi checkout sukses senilai ${totalFormatted}. Kontribusi satwamu tercatat!`);
+      showToast(`🎉 Keren banget! Simulasi checkout sukses senilai ${totalFormatted}. Kontribusi satwamu sudah tercatat!`);
       
       // Clear cart
       state.cart = [];
@@ -636,7 +657,7 @@ function addToCart(product) {
   }
 
   updateCartUI();
-  showToast(`🎒 Ditambahkan: ${product.name}!`);
+  showToast(`🎒 Asyik! ${product.name} berhasil masuk keranjang!`);
   openCartDrawer();
 }
 
@@ -654,16 +675,16 @@ function updateCartUI() {
   const donation10Percent = Math.round(totalPrice * 0.1);
 
   if (countBadge) countBadge.textContent = totalItems;
-  if (drawerCount) drawerCount.textContent = `${totalItems} Barang`;
+  if (drawerCount) drawerCount.textContent = `${totalItems} Gelang`;
 
   // Free shipping threshold (2 items)
   if (shippingProgressBar && shippingHint) {
     const progressPercent = Math.min((totalItems / 2) * 100, 100);
     shippingProgressBar.style.width = `${progressPercent}%`;
     if (totalItems >= 2) {
-      shippingHint.innerHTML = '🎉 <strong>Selamat! Kamu dapat Gratis Ongkir ke seluruh Indonesia!</strong>';
+      shippingHint.innerHTML = '🎉 <strong>Keren! Kamu dapet Gratis Ongkir ke seluruh Indonesia!</strong>';
     } else {
-      shippingHint.textContent = `Tambah ${2 - totalItems} gelang lagi untuk Gratis Ongkir se-Indonesia!`;
+      shippingHint.textContent = `Tinggal tambah ${2 - totalItems} gelang lagi buat dapet Gratis Ongkir se-Indonesia! 🚀`;
     }
   }
 
@@ -676,8 +697,8 @@ function updateCartUI() {
     itemsContainer.innerHTML = `
       <div class="cart-empty-state">
         <span class="empty-emoji">🎒</span>
-        <p>Keranjangmu masih kosong.</p>
-        <a href="#shop" class="btn-primary-coral" id="btn-browse-empty-cart">Lihat Koleksi Gelang ↗</a>
+        <p>Keranjangmu masih kosong nih.</p>
+        <a href="#shop" class="btn-primary-coral" id="btn-browse-empty-cart">Yuk, Intip Koleksi Gelang Kece ↗</a>
       </div>
     `;
     const browseBtn = itemsContainer.querySelector('#btn-browse-empty-cart');
@@ -731,7 +752,7 @@ function updateCartUI() {
       const id = btn.getAttribute('data-id');
       state.cart = state.cart.filter(i => i.id !== id);
       updateCartUI();
-      showToast('Barang dihapus dari keranjang.');
+      showToast('Gelang berhasil dihapus dari keranjang.');
     });
   });
 }
@@ -788,7 +809,7 @@ function initNewsletter() {
       const input = document.getElementById('newsletter-email');
       const email = input ? input.value : '';
       if (email) {
-        showToast('💌 Terima kasih! Kamu resmi terdaftar di Kabar Dari Rimba.');
+        showToast('💌 Makasih banyak! Kamu udah resmi gabung di Kabar Dari Rimba.');
         form.reset();
       }
     });
