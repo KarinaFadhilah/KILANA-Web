@@ -4159,6 +4159,103 @@ input, select, textarea {
   }
 }
 
+/* ---------- Mobile overflow guards ----------
+   Grid items default to min-width:auto, so long nowrap text (hero badge,
+   headline) pushes the single mobile column wider than the screen. */
+@media (max-width: 1024px) {
+  .hero-container > *,
+  .story-grid > *,
+  .scanner-sim-card > *,
+  .footer-grid > *,
+  .features-grid > *,
+  .products-grid > *,
+  .wildlife-cards-grid > * {
+    min-width: 0;
+  }
+
+  .hero-pill-badge {
+    max-width: 100%;
+  }
+
+  .hero-pill-badge .badge-text {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  .hero-headline {
+    overflow-wrap: break-word;
+  }
+
+  .hero-pill-badge {
+    padding: 0.45rem 0.85rem;
+  }
+
+  .hero-pill-badge .badge-text {
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+  }
+}
+
+/* Pricelist table → stacked cards on phones (no sideways scrolling) */
+@media (max-width: 640px) {
+  .pricelist-table-responsive {
+    overflow: visible;
+    border: none;
+  }
+
+  .kilana-pricelist-table {
+    min-width: 0;
+    background: transparent;
+  }
+
+  .kilana-pricelist-table thead {
+    display: none;
+  }
+
+  .kilana-pricelist-table,
+  .kilana-pricelist-table tbody,
+  .kilana-pricelist-table tr,
+  .kilana-pricelist-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .kilana-pricelist-table .tier-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    background-color: var(--color-white);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-md);
+    margin-bottom: 0.85rem;
+    overflow: hidden;
+  }
+
+  .kilana-pricelist-table .popular-row {
+    border-color: var(--color-forest);
+  }
+
+  .kilana-pricelist-table td {
+    padding: 0.85rem 1rem;
+    border-bottom: none;
+  }
+
+  .kilana-pricelist-table .td-price {
+    text-align: right;
+  }
+
+  .kilana-pricelist-table .td-features,
+  .kilana-pricelist-table .td-passport {
+    grid-column: 1 / -1;
+    padding-top: 0;
+  }
+}
+
 /* ---------- Touch & Hover improvements ---------- */
 @media (hover: none) and (pointer: coarse) {
   /* Remove hover-only transforms on touch devices */
@@ -4278,3 +4375,176 @@ input, select, textarea {
 }
 
 
+
+/* ==========================================================================
+   KILANA LOGO & MASCOTS (Kobo, Harimau, Orangutan)
+   Purely decorative overlays — absolutely positioned so the layout stays put.
+   ========================================================================== */
+.logo-mark-img {
+  display: block;
+  object-fit: contain;
+}
+
+.footer-logo-tile {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background-color: var(--color-cream);
+}
+
+.mascot {
+  position: absolute;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  z-index: 3;
+  filter: drop-shadow(0 6px 10px rgba(24, 51, 41, 0.18));
+}
+
+.mascot-inline {
+  display: block;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  margin: 0 auto 0.75rem;
+}
+
+@keyframes mascot-bob {
+  0%, 100% { transform: translateY(0) rotate(var(--mascot-tilt, 0deg)); }
+  50% { transform: translateY(-8px) rotate(var(--mascot-tilt, 0deg)); }
+}
+
+/* Hero: Kobo jumps in from the free bottom-right corner, Harimau peeks from
+   the left edge (the stickers own the other corners on desktop) */
+.mascot-hero-kobo {
+  width: 128px;
+  right: -52px;
+  bottom: -30px;
+  --mascot-tilt: 4deg;
+  animation: mascot-bob 3.2s ease-in-out infinite;
+}
+
+.mascot-hero-tiger {
+  width: 112px;
+  left: -64px;
+  top: 42%;
+}
+
+/* Wildlife header: tiger & orangutan flank the heading */
+.wildlife-header-center {
+  position: relative;
+}
+
+.mascot-wildlife-tiger {
+  width: 104px;
+  left: -120px;
+  top: 10px;
+  --mascot-tilt: -6deg;
+  animation: mascot-bob 3.6s ease-in-out infinite;
+}
+
+.mascot-wildlife-orangutan {
+  width: 100px;
+  right: -116px;
+  top: 4px;
+  --mascot-tilt: 5deg;
+  animation: mascot-bob 3.6s ease-in-out 0.6s infinite;
+}
+
+/* Scanner: Kobo points at the phone */
+.sim-graphic {
+  position: relative;
+}
+
+.mascot-sim-kobo {
+  width: 140px;
+  left: -30px;
+  bottom: -10px;
+}
+
+/* Story collage: Kobo gives the orangutan a flower */
+.mascot-story {
+  width: 190px;
+  right: -24px;
+  bottom: -54px;
+}
+
+.mascot-community {
+  width: 190px;
+}
+
+/* Closing banner corners */
+.mascot-closing-left,
+.mascot-closing-right {
+  bottom: 0;
+  filter: none;
+}
+
+.mascot-closing-left {
+  width: 150px;
+  left: 2%;
+}
+
+.mascot-closing-right {
+  width: 140px;
+  right: 3%;
+}
+
+/* Footer: orangutan naps on the top edge */
+.site-footer {
+  position: relative;
+}
+
+.mascot-footer {
+  width: 150px;
+  right: 8%;
+  top: -76px;
+  filter: none;
+}
+
+@media (max-width: 1280px) {
+  .mascot-wildlife-tiger { left: -70px; width: 88px; }
+  .mascot-wildlife-orangutan { right: -66px; width: 86px; }
+}
+
+@media (max-width: 1024px) {
+  .mascot-hero-kobo { right: -12px; }
+  .mascot-hero-tiger { left: -24px; }
+  .mascot-sim-kobo { left: calc(50% - 230px); }
+  .mascot-closing-left { width: 120px; }
+  .mascot-closing-right { width: 110px; }
+}
+
+@media (max-width: 900px) {
+  .mascot-wildlife-tiger { left: 0; top: -18px; width: 72px; }
+  .mascot-wildlife-orangutan { right: 0; top: -22px; width: 70px; }
+}
+
+@media (max-width: 768px) {
+  .mascot-hero-kobo { width: 96px; right: -6px; bottom: -22px; }
+  .mascot-hero-tiger { width: 86px; top: -48px; left: 12%; }
+  .mascot-sim-kobo { width: 104px; left: calc(50% - 175px); }
+  .mascot-story { width: 150px; right: -6px; bottom: -40px; }
+  .mascot-community { width: 160px; }
+
+  /* Closing: give the mascots their own strip below the perks */
+  .closing-banner { padding-bottom: 7rem; }
+  .mascot-closing-left { width: 96px; left: 4%; }
+  .mascot-closing-right { width: 86px; right: 5%; }
+
+  .mascot-footer { width: 116px; top: -59px; right: 6%; }
+}
+
+@media (max-width: 480px) {
+  .wildlife-header-center { padding-top: 2.75rem; }
+  .mascot-wildlife-tiger { top: -6px; width: 64px; }
+  .mascot-wildlife-orangutan { top: -10px; width: 62px; }
+  .mascot-sim-kobo { width: 84px; left: 0; }
+  .story-collage-stack { padding-bottom: 3.5rem; }
+  .mascot-story { width: 140px; right: 0; bottom: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mascot { animation: none !important; }
+}
